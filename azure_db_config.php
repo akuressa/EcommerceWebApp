@@ -7,9 +7,9 @@
 // Azure MySQL Database Configuration
 // Replace these with your actual Azure database details
 $azure_db_config = [
-    'host' => 'localhost',        // Change to your Azure MySQL server
-    'username' => 'root',         // Change to your Azure MySQL username  
-    'password' => '',             // Change to your Azure MySQL password
+    'host' => 'dbyeshicraft.mysql.database.azure.com',        // Change to your Azure MySQL server
+    'username' => 'yeshicraft',         // Change to your Azure MySQL username  
+    'password' => 'Yeshicraft@123',             // Change to your Azure MySQL password
     'database' => 'ecommerceapp', // Your database name
     'port' => 3306                // MySQL port (usually 3306)
 ];

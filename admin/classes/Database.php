@@ -26,9 +26,9 @@ class Database
 			}
 			
 			// Fallback Azure settings (use your actual Azure database details)
-			$host = "localhost"; // Change this to your Azure MySQL server
-			$username = "root";  // Change this to your Azure MySQL username
-			$password = "";      // Change this to your Azure MySQL password
+			$host = "dbyeshicraft.mysql.database.azure.com"; // Change this to your Azure MySQL server
+			$username = "yeshicraft";  // Change this to your Azure MySQL username
+			$password = "Yeshicraft@123";      // Change this to your Azure MySQL password
 			$database = "ecommerceapp";
 		} else {
 			// Local settings
