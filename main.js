@@ -259,7 +259,7 @@ $(document).ready(function(){
 					// Show success message after cart refresh
 					setTimeout(function() {
 						showCartMessage('Product removed from cart successfully!', 'success');
-					}, 100);
+					}, 300);
 					// Refresh the header total
 					setTimeout(function() {
 						refreshHeaderTotal();
@@ -308,7 +308,7 @@ $(document).ready(function(){
 					// Show success message after cart refresh
 					setTimeout(function() {
 						showCartMessage('Product quantity updated successfully!', 'success');
-					}, 100);
+					}, 300);
 					// Refresh the header total
 					setTimeout(function() {
 						refreshHeaderTotal();
