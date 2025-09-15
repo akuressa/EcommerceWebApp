@@ -69,7 +69,7 @@ class Customers
 		
 		// Handle receipt file upload if payment method is receipt_upload
 		if ($payment_method === 'receipt_upload' && isset($files['receipt_file']) && $files['receipt_file']['error'] == 0) {
-			$upload_dir = 'uploads/';
+			$upload_dir = '../uploads/';
 			if (!file_exists($upload_dir)) {
 				mkdir($upload_dir, 0777, true);
 			}
@@ -86,7 +86,7 @@ class Customers
 		
 		// Insert order into database
 		$stmt = $this->con->prepare("INSERT INTO orders (user_id, product_id, qty, trx_id, p_status, payment_method, receipt_file) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param("iiissss", $customer_id, $product_id, $quantity, $transaction_id, $order_status, $payment_method, $upload_path);
+		$stmt->bind_param("iiissss", $customer_id, $product_id, $quantity, $transaction_id, $order_status, $payment_method, 'uploads/' . $receipt_file);
 		
 		if ($stmt->execute()) {
 			return ['status' => 202, 'message' => 'Order added successfully'];
