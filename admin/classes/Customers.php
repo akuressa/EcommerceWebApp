@@ -86,7 +86,7 @@ class Customers
 		
 		// Insert order into database
 		$stmt = $this->con->prepare("INSERT INTO orders (user_id, product_id, qty, trx_id, p_status, payment_method, receipt_file) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param("iiissss", $customer_id, $product_id, $quantity, $transaction_id, $order_status, $payment_method, 'uploads/' . $receipt_file);
+		$stmt->bind_param("iiissss", $customer_id, $product_id, $quantity, $transaction_id, $order_status, $payment_method, $receipt_file);
 		
 		if ($stmt->execute()) {
 			return ['status' => 202, 'message' => 'Order added successfully'];
