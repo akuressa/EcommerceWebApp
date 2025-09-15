@@ -78,6 +78,7 @@ class Customers
 			$receipt_file = 'receipt_' . time() . '_' . $customer_id . '.' . $file_extension;
 			$upload_path = $upload_dir . $receipt_file;
 			
+
 			if (!move_uploaded_file($files['receipt_file']['tmp_name'], $upload_path)) {
 				return ['status' => 303, 'message' => 'Failed to upload receipt file'];
 			}
@@ -85,7 +86,7 @@ class Customers
 		
 		// Insert order into database
 		$stmt = $this->con->prepare("INSERT INTO orders (user_id, product_id, qty, trx_id, p_status, payment_method, receipt_file) VALUES (?, ?, ?, ?, ?, ?, ?)");
-		$stmt->bind_param("iiissss", $customer_id, $product_id, $quantity, $transaction_id, $order_status, $payment_method, $receipt_file);
+		$stmt->bind_param("iiissss", $customer_id, $product_id, $quantity, $transaction_id, $order_status, $payment_method, $upload_path);
 		
 		if ($stmt->execute()) {
 			return ['status' => 202, 'message' => 'Order added successfully'];
