@@ -1,6 +1,8 @@
 <?php
 session_start();
-$ip_add = getenv("REMOTE_ADDR");
+$session_id = session_id();
+$ip_add = $session_id;
+// $ip_add = getenv("REMOTE_ADDR");
 require "config/constants.php";
 include "db.php";
 

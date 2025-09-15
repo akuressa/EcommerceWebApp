@@ -118,7 +118,9 @@ if(empty($f_name) || empty($l_name) || empty($email) || empty($password) || empt
 		$run_query = mysqli_query($con,$sql);
 		$_SESSION["uid"] = mysqli_insert_id($con);
 		$_SESSION["name"] = $f_name;
-		$ip_add = getenv("REMOTE_ADDR");
+		// $ip_add = getenv("REMOTE_ADDR");
+		$session_id = session_id();
+		$ip_add = $session_id;
 		$sql = "UPDATE cart SET user_id = '$_SESSION[uid]' WHERE ip_add='$ip_add' AND user_id = -1";
 		if(mysqli_query($con,$sql)){
 			echo "register_success";

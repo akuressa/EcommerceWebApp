@@ -4,7 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-$ip_add = getenv("REMOTE_ADDR");
+$session_id = session_id();
+$ip_add = $session_id;
 
 // Debug: Log the request
 error_log("Action.php called with POST data: " . print_r($_POST, true));
@@ -446,7 +447,7 @@ if (isset($_POST["getCartTotal"])) {
 	if (isset($_SESSION["uid"])) {
 		$sql = "SELECT a.product_price, b.qty FROM products a, cart b WHERE a.product_id=b.p_id AND b.user_id='$_SESSION[uid]'";
 	}else{
-		$ip_add = getenv("REMOTE_ADDR");
+		$ip_add = $session_id;
 		$sql = "SELECT a.product_price, b.qty FROM products a, cart b WHERE a.product_id=b.p_id AND b.ip_add='$ip_add' AND b.user_id < 0";
 	}
 	$query = mysqli_query($con,$sql);
