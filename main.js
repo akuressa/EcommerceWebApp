@@ -259,7 +259,7 @@ $(document).ready(function(){
 					// Show success message after cart refresh
 					setTimeout(function() {
 						showCartMessage('Product removed from cart successfully!', 'success');
-					}, 3000);
+					}, 100);
 					// Refresh the header total
 					setTimeout(function() {
 						refreshHeaderTotal();
@@ -308,11 +308,12 @@ $(document).ready(function(){
 					// Show success message after cart refresh
 					setTimeout(function() {
 						showCartMessage('Product quantity updated successfully!', 'success');
-					}, 3000);
-					// Refresh the header total
-					setTimeout(function() {
 						refreshHeaderTotal();
-					}, 300);
+					}, 100);
+					// Refresh the header total
+					// setTimeout(function() {
+						
+					// }, 300);
 				} else {
 					// Reset button on error
 					$button.html('<span class="glyphicon glyphicon-ok-sign"></span> Update');
