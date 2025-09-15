@@ -258,12 +258,10 @@ $(document).ready(function(){
 					getCartItem();
 					// Show success message after cart refresh
 					setTimeout(function() {
-						showCartMessage('Product removed from cart successfully!', 'success');
-					}, 100);
-					// Refresh the header total
-					setTimeout(function() {
+						showCartMessage('Product removed from cart successfully!', 'success', 2000);
 						refreshHeaderTotal();
-					}, 300);
+					}, 100);
+				
 				} else {
 					// Reset button on error
 					$button.html('<span class="glyphicon glyphicon-trash"></span> Delete');
@@ -307,7 +305,7 @@ $(document).ready(function(){
 					getCartItem();
 					// Show success message after cart refresh
 					setTimeout(function() {
-						showCartMessage('Product quantity updated successfully!', 'success');
+						showCartMessage('Product quantity updated successfully!', 'success', 2000);
 						refreshHeaderTotal();
 					}, 100);
 					// Refresh the header total
