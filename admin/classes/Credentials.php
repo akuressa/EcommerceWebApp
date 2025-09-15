@@ -68,7 +68,6 @@ class Credentials
 		
 		if ($q->num_rows > 0) {
 			$row = $q->fetch_assoc();
-			return ['hash' => md5($password), 'pwd' => $row['password']];
 			if (password_verify($password, $row['password'])) {
 				$_SESSION['admin_name'] = $row['name'];
 				$_SESSION['admin_id'] = $row['id'];
