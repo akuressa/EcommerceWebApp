@@ -95,11 +95,11 @@ if (isset($_POST["processPayment"])) {
 	file_put_contents($debug_file, "[$debug_time] processPayment called for user: $debug_user\n", FILE_APPEND);
 	
 	// Simple double-click prevention
-	if (isset($_SESSION['processing_order']) && $_SESSION['processing_order'] === true) {
-		file_put_contents($debug_file, "[$debug_time] BLOCKED: Order already being processed\n", FILE_APPEND);
-		header("Location: index.php?order_success=1&duplicate=1");
-		exit();
-	}
+	// if (isset($_SESSION['processing_order']) && $_SESSION['processing_order'] === true) {
+	// 	file_put_contents($debug_file, "[$debug_time] BLOCKED: Order already being processed\n", FILE_APPEND);
+	// 	header("Location: index.php?order_success=1&duplicate=1");
+	// 	exit();
+	// }
 	
 	// Set processing flag
 	$_SESSION['processing_order'] = true;
@@ -180,8 +180,10 @@ if (isset($_POST["processPayment"])) {
 			file_put_contents($debug_file, "[$debug_time] Quantities: " . implode(',', $qtys) . "\n", FILE_APPEND);
 			
 			for ($i=0; $i < count($product_ids); $i++) { 
+				file_put_contents($debug_file, "[$debug_time] test loop: " . "\n", FILE_APPEND);
 				$sql = "INSERT INTO orders (user_id,product_id,qty,trx_id,p_status,payment_method,receipt_file) VALUES ('$user_id','".$product_ids[$i]."','".$qtys[$i]."','$trx_id','Pending','$payment_method','$receipt_file')";
 				$result = mysqli_query($con,$sql);
+				file_put_contents($debug_file, "[$debug_time] insert error: " . "\n", FILE_APPEND);
 				file_put_contents($debug_file, "[$debug_time] Inserted product {$product_ids[$i]} (qty: {$qtys[$i]}) - Result: " . ($result ? 'SUCCESS' : 'FAILED') . "\n", FILE_APPEND);
 			}
 			
