@@ -69,7 +69,7 @@ class Customers
 		
 		// Handle receipt file upload if payment method is receipt_upload
 		if ($payment_method === 'receipt_upload' && isset($files['receipt_file']) && $files['receipt_file']['error'] == 0) {
-			$upload_dir = '../uploads/';
+			$upload_dir = 'uploads/';
 			if (!file_exists($upload_dir)) {
 				mkdir($upload_dir, 0777, true);
 			}
