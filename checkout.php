@@ -663,13 +663,13 @@ $query = mysqli_query($con,$sql);
 				
 				/* Payment section height for mobile screens */
 				.payment-section {
-					max-height: 50vh;
+					max-height: 40vh;
 					overflow-y: auto;
 				}
 				
 				/* Order summary height for mobile screens */
 				.order-summary {
-					max-height: 50vh;
+					max-height: 40vh;
 					overflow-y: auto;
 				}
 				
