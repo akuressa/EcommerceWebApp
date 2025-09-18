@@ -14,6 +14,7 @@ if(!isset($_SESSION["uid"])){
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Login Required - Ecommerce</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
 	<script src="js/jquery2.js"></script>
@@ -55,6 +56,55 @@ if(!isset($_SESSION["uid"])){
 		.countdown {
 			color: #007bff;
 			font-weight: bold;
+		}
+		
+		/* Mobile responsive styles */
+		@media (max-width: 767px) {
+			.message-container {
+				padding: 60px 30px;
+				max-width: 90%;
+				width: 95%;
+				margin: 20px;
+			}
+			.message-icon {
+				font-size: 80px;
+				margin-bottom: 30px;
+			}
+			.message-text {
+				font-size: 24px;
+				margin-bottom: 30px;
+				line-height: 1.4;
+			}
+			.redirect-text {
+				font-size: 18px;
+				line-height: 1.4;
+			}
+			.countdown {
+				font-size: 20px;
+			}
+		}
+		
+		/* Very small screens */
+		@media (max-width: 480px) {
+			.message-container {
+				padding: 50px 20px;
+				max-width: 95%;
+				width: 98%;
+			}
+			.message-icon {
+				font-size: 70px;
+				margin-bottom: 25px;
+			}
+			.message-text {
+				font-size: 22px;
+				margin-bottom: 25px;
+			}
+			.redirect-text {
+				font-size: 16px;
+			}
+			.countdown {
+				font-size: 18px;
+			}
 		}
 	</style>
 </head>
@@ -250,13 +300,15 @@ $query = mysqli_query($con,$sql);
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Ecommerce</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/responsive.css"/>
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		<!-- <script src="main.js"></script> -->
+		<script src="main.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css"/>
 		<link rel="stylesheet" type="text/css" href="css/cart.css"/>
 		<style>
@@ -367,31 +419,274 @@ $query = mysqli_query($con,$sql);
 				transition: all 0.3s ease;
 				width: 100%;
 			}
+			
+			/* Mobile responsive styles for the payment button */
+			@media (max-width: 768px) {
+				.btn-complete-order {
+					width: auto !important;
+					max-width: 280px;
+					margin: 0 auto;
+					display: block;
+					padding: 12px 25px;
+					font-size: 16px;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				.btn-complete-order {
+					max-width: 240px;
+					padding: 10px 20px;
+					font-size: 14px;
+				}
+			}
 			.btn-complete-order:hover {
 				transform: translateY(-2px);
 				box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+			}
+			
+			/* Payment section height for web screens */
+			.payment-section {
+				max-height: 80vh;
+				overflow-y: auto;
+			}
+			
+			/* Mobile responsive styles for checkout page */
+			@media (max-width: 767.98px) {
+				body {
+					padding-top: 60px !important;
+				}
+				
+				.container-fluid {
+					padding-left: 10px;
+					padding-right: 10px;
+				}
+				
+				/* Mobile navbar header styling */
+				.navbar-header {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					width: 100%;
+				}
+				
+				.navbar-header .navbar-brand {
+					flex: 1;
+					margin-left: 15px;
+				}
+				
+				.navbar-header .mobile-cart {
+					display: block !important;
+					color: white;
+					text-decoration: none;
+					padding: 8px 12px;
+					margin-right: 15px;
+					border-radius: 4px;
+					background: rgba(255,255,255,0.1);
+					transition: background 0.2s ease;
+				}
+				
+				.navbar-header .mobile-cart:hover {
+					background: rgba(255,255,255,0.2);
+					color: white;
+					text-decoration: none;
+				}
+				
+				.navbar-header .mobile-cart .badge {
+					background: #dc3545;
+					color: white;
+					border-radius: 50%;
+					padding: 2px 6px;
+					font-size: 12px;
+					margin-left: 5px;
+				}
+				
+				.navbar-toggle {
+					display: block;
+					margin-right: -20px;
+					float: right;
+				}
+				
+				/* Hide desktop cart on mobile */
+				#cart_container {
+					display: none !important;
+				}
+				
+				/* Style search bar for mobile */
+				.navbar-form {
+					margin: 10px 0 !important;
+					padding: 0 15px !important;
+					width: 100% !important;
+					display: flex !important;
+					align-items: stretch !important;
+					gap: 0 !important;
+					background: transparent !important;
+					border: none !important;
+					border-radius: 0 !important;
+				}
+				
+				.navbar-form .form-group {
+					margin-bottom: 0 !important;
+					flex: 1 !important;
+					display: flex !important;
+					position: relative !important;
+				}
+				
+				.navbar-form .form-control {
+					font-size: 16px !important;
+					height: 40px !important;
+					width: 100% !important;
+					margin-bottom: 0 !important;
+					border: 2px solid #ddd !important;
+					border-radius: 4px 0 0 4px !important;
+					border-right: none !important;
+					padding-left: 40px !important;
+					background: white !important;
+					background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23999' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3e%3c/svg%3e") !important;
+					background-repeat: no-repeat !important;
+					background-position: 12px center !important;
+					background-size: 16px !important;
+				}
+				
+				.navbar-form .form-control:focus {
+					border-color: #007bff !important;
+					box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25) !important;
+					border-right: none !important;
+					outline: none !important;
+				}
+				
+				.navbar-form .form-control::placeholder {
+					color: #999 !important;
+					font-style: italic !important;
+				}
+				
+				.navbar-form .btn {
+					height: 40px !important;
+					padding: 8px 12px !important;
+					width: auto !important;
+					min-width: 60px !important;
+					margin-top: 0 !important;
+					font-weight: 600 !important;
+					flex-shrink: 0 !important;
+					background: #007bff !important;
+					border: 2px solid #007bff !important;
+					border-radius: 0 4px 4px 0 !important;
+					color: white !important;
+					display: flex !important;
+					align-items: center !important;
+					justify-content: center !important;
+					position: relative !important;
+				}
+				
+				.navbar-form .btn:hover {
+					background: #0056b3 !important;
+					border-color: #0056b3 !important;
+				}
+				
+				/* Mobile cart dropdown styling */
+				.mobile-cart-menu {
+					background: #dcd8d8 !important;
+					border: 1px solid #ccc !important;
+					border-radius: 8px !important;
+					box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+				}
+				
+				/* Mobile checkout content styling */
+				.checkout-container {
+					padding: 10px 0;
+				}
+				
+				.checkout-card {
+					margin-bottom: 15px;
+					border-radius: 8px;
+				}
+				
+				.checkout-card .card-header {
+					padding: 12px 15px;
+					font-size: 16px;
+				}
+				
+				.checkout-card .card-body {
+					padding: 15px;
+				}
+				
+				.payment-method-card {
+					margin-bottom: 10px;
+					padding: 15px;
+					border-radius: 8px;
+				}
+				
+				.payment-method-card .radio {
+					margin: 0;
+				}
+				
+				.payment-method-card .radio label {
+					font-size: 14px;
+					margin: 0;
+				}
+				
+				.btn-complete-order {
+					width: 100% !important;
+					max-width: none !important;
+					margin: 0 !important;
+					padding: 15px !important;
+					font-size: 16px !important;
+				}
+				
+				.navbar-nav .open .dropdown-menu {
+					background-color: white;
+				}
+				
+				/* Payment section height for mobile screens */
+				.payment-section {
+					max-height: 30vh;
+					overflow-y: auto;
+				}
 			}
 		</style>
 	</head>
 <body>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">	
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
-					<span class="sr-only"> navigation toggle</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a href="#" class="navbar-brand">Ecommerce Site</a>
-			</div>
+		<div class="navbar-header">
+			<a href="#" class="navbar-brand">Ecommerce Site</a>
+			<ul class="nav navbar-nav mobile-cart-nav">
+				<li class="mobile-cart-dropdown">
+					<a href="#" class="mobile-cart dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-shopping-cart"></span> Cart <span class="badge">0</span>
+					</a>
+					<div class="dropdown-menu mobile-cart-menu" style="width:100%; max-width: 100%;">
+						<button class="close-btn" onclick="$('.mobile-cart-menu').removeClass('show')">&times;</button>
+						<div class="panel panel-success">
+							<div class="panel-heading" style="display: none;">
+							</div>
+							<div class="panel-body">
+								<div id="mobile_cart_product">
+								
+								</div>
+							</div>
+							<div class="panel-footer"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+				<span class="sr-only">navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
 		<div class="collapse navbar-collapse" id="collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span> Product</a></li>
-				<li style="width:300px;left:10px;top:10px;"><input type="text" class="form-control" id="search"></li>
-				<li style="top:10px;left:20px;"><button class="btn btn-primary" id="search_btn">Search</button></li>
 			</ul>
+			<form class="navbar-form navbar-left">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search" id="search">
+		        </div>
+		        <button type="submit" class="btn btn-primary" id="search_btn">Search</button>
+		     </form>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="#" id="cart_container" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-shopping-cart"></span> Cart <span class="badge">0</span></a>
 					<div class="dropdown-menu" style="width:1000px; max-width: 1000px;">
@@ -705,6 +1000,51 @@ function validateForm(event) {
 	
 	return true;
 }
+
+// Mobile cart functionality - matching other pages
+$(document).ready(function() {
+	console.log("Checkout page: Document ready - setting up mobile cart");
+	
+	// Load mobile cart when dropdown is opened
+	$('.mobile-cart').on('click', function(e) {
+		e.preventDefault();
+		console.log("Mobile cart clicked in checkout");
+		loadMobileCart();
+	});
+	
+	// Load cart content function
+	function loadMobileCart() {
+		console.log("Loading mobile cart in checkout...");
+		
+		$.ajax({
+			url: "action.php",
+			method: "POST",
+			data: {Common: 1, getCartItem: 1},
+			success: function(data) {
+				console.log("Cart data received in checkout:", data);
+				
+				if (data && data.trim() !== '') {
+					$("#mobile_cart_product").html(data);
+				} else {
+					$("#mobile_cart_product").html('<div class="text-center" style="padding: 40px; color: #666;">Your cart is empty</div>');
+				}
+			},
+			error: function(xhr, status, error) {
+				console.log("Cart load error in checkout:", error);
+				$("#mobile_cart_product").html('<div class="text-center" style="padding: 40px; color: #666;">Error loading cart: ' + error + '</div>');
+			}
+		});
+	}
+	
+	// Also load on page load
+	loadMobileCart();
+	
+	// Update mobile cart when main cart is updated
+	$(document).on('cartUpdated', function() {
+		console.log("Cart updated event received in checkout");
+		loadMobileCart();
+	});
+});
 </script>
 </body>	
 </html>

@@ -12,6 +12,16 @@ error_log("Action.php called with POST data: " . print_r($_POST, true));
 
 include "db.php";
 
+// Check login status
+if (isset($_POST["checkLogin"])) {
+    if (isset($_SESSION["uid"])) {
+        echo "logged_in";
+    } else {
+        echo "not_logged_in";
+    }
+    exit();
+}
+
 // Debug: Check database connection
 if (!$con) {
     error_log("Database connection failed: " . mysqli_connect_error());
@@ -341,7 +351,7 @@ if (isset($_POST["Common"])) {
 			}
 			
 			echo '<div style="margin: 40px 20px 20px 20px; text-align: center; padding: 20px; background: #f8f9fa; border-radius: 10px; border: 2px solid #e9ecef;">
-					<a href="checkout.php" class="btn btn-success btn-lg" style="border-radius: 12px; font-weight: 700; padding: 18px 50px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transition: all 0.3s ease; font-size: 18px; text-decoration: none; display: inline-block;">
+					<a href="checkout.php" class="btn btn-success btn-lg" style="border-radius: 12px; font-weight: 700; padding: 18px 20px; box-shadow: 0 6px 12px rgba(0,0,0,0.15); transition: all 0.3s ease; font-size: 18px; text-decoration: none; display: inline-block;">
 						<span class="glyphicon glyphicon-credit-card"></span> Make Payment
 					</a>
 				  </div>';

@@ -18,13 +18,14 @@ if(isset($_SESSION["uid"])){
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Ecommerce</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="main.js"></script>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<style></style>
 	</head>
 <body>
 <div class="wait overlay">
@@ -32,15 +33,41 @@ if(isset($_SESSION["uid"])){
 </div>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">	
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
-					<span class="sr-only">navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a href="index.php" class="navbar-brand">Ecommerce Site</a>
-			</div>
+		<div class="navbar-header">
+			<a href="index.php" class="navbar-brand">Ecommerce Site</a>
+			<ul class="nav navbar-nav mobile-cart-nav">
+				<li class="mobile-cart-dropdown">
+					<a href="#" class="mobile-cart dropdown-toggle" data-toggle="dropdown">
+						<span class="glyphicon glyphicon-shopping-cart"></span> Cart <span class="badge">0</span>
+					</a>
+					<div class="dropdown-menu mobile-cart-menu" style="width:100%; max-width: 100%;">
+						<button class="close-btn" onclick="$('.mobile-cart-menu').removeClass('show')">&times;</button>
+						<!-- <div class="cart-header">Cart Checkout</div> -->
+						<div class="panel panel-success">
+							<div class="panel-heading" style="display: none;">
+							</div>
+							<div class="panel-body">
+								<div id="mobile_cart_product">
+									<!--<div class="row">
+										<div class="col-md-3">Sl.No</div>
+										<div class="col-md-3">Product Image</div>
+										<div class="col-md-3">Product Name</div>
+										<div class="col-md-3">Price in $.</div>
+									</div>-->
+								</div>
+							</div>
+							<div class="panel-footer"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+				<span class="sr-only">navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
 		<div class="collapse navbar-collapse" id="collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
@@ -154,6 +181,83 @@ if(isset($_SESSION["uid"])){
 			<div class="col-md-1"></div>
 		</div>
 	</div>
+	
+	<script>
+		// Simple mobile cart display - just show the cart content directly
+		function loadMobileCart() {
+			console.log("Loading mobile cart...");
+			
+			$.ajax({
+				url: "action.php",
+				method: "POST",
+				data: {Common: 1, getCartItem: 1},
+				success: function(data) {
+					console.log("Cart data received:", data);
+					
+					// Just display the raw cart content for now
+					if (data && data.trim() !== '') {
+						$("#mobile_cart_product").html(data);
+					} else {
+						$("#mobile_cart_product").html('<div class="text-center" style="padding: 40px; color: #666;">Your cart is empty</div>');
+					}
+				},
+				error: function(xhr, status, error) {
+					console.log("Cart load error:", error);
+					$("#mobile_cart_product").html('<div class="text-center" style="padding: 40px; color: #666;">Error loading cart: ' + error + '</div>');
+				}
+			});
+		}
+		
+		// Handle make payment button click
+		function handleMakePayment() {
+			// Check if user is logged in by making a simple AJAX call
+			$.ajax({
+				url: "action.php",
+				method: "POST",
+				data: {checkLogin: 1},
+				success: function(response) {
+					if (response === "logged_in") {
+						// User is logged in, redirect to checkout
+						window.location.href = "checkout.php";
+					} else {
+						// User is not logged in, show login modal
+						$('#loginModal').modal('show');
+					}
+				},
+				error: function() {
+					// On error, show login modal
+					$('#loginModal').modal('show');
+				}
+			});
+		}
+		
+		// Load mobile cart when dropdown is opened
+		$(document).ready(function() {
+			console.log("Document ready - setting up mobile cart");
+			
+			// Load cart when mobile cart dropdown is clicked
+			$('.mobile-cart').on('click', function(e) {
+				e.preventDefault();
+				console.log("Mobile cart clicked");
+				loadMobileCart();
+			});
+			
+			// Handle make payment button clicks in mobile cart
+			$(document).on('click', '.make-payment-btn', function(e) {
+				e.preventDefault();
+				handleMakePayment();
+			});
+			
+			// Also load on page load
+			loadMobileCart();
+		});
+		
+		// Update mobile cart when main cart is updated
+		$(document).on('cartUpdated', function() {
+			console.log("Cart updated event received");
+			loadMobileCart();
+		});
+	</script>
 </body>
 </html>
 

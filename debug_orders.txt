@@ -115,3 +115,10 @@
 [2025-09-14 13:11:58] Inserted product 24 (qty: 1) - Result: SUCCESS
 [2025-09-14 13:11:58] Inserted product 23 (qty: 1) - Result: SUCCESS
 [2025-09-14 13:11:58] Order completed successfully, clearing processing flag
+[2025-09-18 18:51:27] processPayment called for user: 7
+[2025-09-18 18:51:27] Set processing flag for user: 7
+[2025-09-18 18:51:27] Starting insertion of 1 products for trx_id: TXN_1758214287_7
+[2025-09-18 18:51:27] Product IDs: 21
+[2025-09-18 18:51:27] Quantities: 2
+[2025-09-18 18:51:27] Inserted product 21 (qty: 2) - Result: SUCCESS
+[2025-09-18 18:51:27] Order completed successfully, clearing processing flag
