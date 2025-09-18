@@ -450,6 +450,31 @@ $query = mysqli_query($con,$sql);
 				overflow-y: auto;
 			}
 			
+			/* Order summary height for web screens */
+			.order-summary {
+				max-height: 80vh;
+				overflow-y: auto;
+			}
+			
+			/* Order summary scrollbar styling */
+			.order-summary::-webkit-scrollbar {
+				width: 8px;
+			}
+			
+			.order-summary::-webkit-scrollbar-track {
+				background: #f1f1f1;
+				border-radius: 4px;
+			}
+			
+			.order-summary::-webkit-scrollbar-thumb {
+				background: #c1c1c1;
+				border-radius: 4px;
+			}
+			
+			.order-summary::-webkit-scrollbar-thumb:hover {
+				background: #a8a8a8;
+			}
+			
 			/* Mobile responsive styles for checkout page */
 			@media (max-width: 767.98px) {
 				body {
@@ -640,6 +665,31 @@ $query = mysqli_query($con,$sql);
 				.payment-section {
 					max-height: 30vh;
 					overflow-y: auto;
+				}
+				
+				/* Order summary height for mobile screens */
+				.order-summary {
+					max-height: 30vh;
+					overflow-y: auto;
+				}
+				
+				/* Order summary scrollbar styling for mobile */
+				.order-summary::-webkit-scrollbar {
+					width: 6px;
+				}
+				
+				.order-summary::-webkit-scrollbar-track {
+					background: #f1f1f1;
+					border-radius: 3px;
+				}
+				
+				.order-summary::-webkit-scrollbar-thumb {
+					background: #c1c1c1;
+					border-radius: 3px;
+				}
+				
+				.order-summary::-webkit-scrollbar-thumb:hover {
+					background: #a8a8a8;
 				}
 			}
 		</style>
