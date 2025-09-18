@@ -1,0 +1,431 @@
+/* Mobile-First Responsive Design for E-commerce */
+
+/* Base Mobile Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 15px;
+}
+
+.mobile-nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.mobile-menu-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.mobile-nav-menu.active {
+    display: block;
+}
+
+.mobile-nav-item {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+}
+
+.mobile-nav-item:last-child {
+    border-bottom: none;
+}
+
+.mobile-nav-item:hover {
+    color: #007bff;
+}
+
+/* Mobile Search */
+.mobile-search {
+    margin: 15px 0;
+}
+
+.mobile-search input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+.mobile-search input:focus {
+    border-color: #007bff;
+}
+
+/* Mobile Cart & User Actions */
+.mobile-actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+    padding: 15px 0;
+    border-top: 1px solid #eee;
+}
+
+.mobile-action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.mobile-action-btn i {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.mobile-action-btn .badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #dc3545;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+}
+
+/* Mobile Product Grid */
+.mobile-products {
+    padding: 20px 15px;
+    margin-top: 80px; /* Account for fixed nav */
+}
+
+.mobile-product-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+}
+
+.mobile-product-card:hover {
+    transform: translateY(-2px);
+}
+
+.mobile-product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.mobile-product-info {
+    padding: 15px;
+}
+
+.mobile-product-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #333;
+    line-height: 1.4;
+}
+
+.mobile-product-price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 12px;
+}
+
+.mobile-add-to-cart {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.mobile-add-to-cart:hover {
+    background: #0056b3;
+}
+
+/* Mobile Categories */
+.mobile-categories {
+    padding: 20px 15px;
+    margin-top: 80px;
+}
+
+.mobile-category-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.mobile-category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mobile-category-item {
+    background: #fff;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    border: 2px solid #e9ecef;
+    transition: all 0.2s ease;
+}
+
+.mobile-category-item:hover,
+.mobile-category-item.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Mobile Login Modal */
+.mobile-login-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+.mobile-login-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.mobile-login-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.mobile-form-group {
+    margin-bottom: 20px;
+}
+
+.mobile-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.mobile-form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+}
+
+.mobile-form-group input:focus {
+    border-color: #007bff;
+}
+
+.mobile-login-btn {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.mobile-register-link {
+    text-align: center;
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Hide desktop navigation on mobile */
+@media (max-width: 768px) {
+    .navbar {
+        display: none !important;
+    }
+    
+    .mobile-nav {
+        display: block;
+    }
+    
+    .container-fluid {
+        padding: 0;
+    }
+    
+    .col-md-1,
+    .col-md-2,
+    .col-md-8 {
+        width: 100%;
+        padding: 0;
+    }
+    
+    /* Hide desktop sidebar */
+    #get_category,
+    #get_brand {
+        display: none;
+    }
+    
+    /* Mobile product display */
+    #get_product {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .panel {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+    
+    .panel-heading {
+        display: none;
+    }
+    
+    .panel-body {
+        padding: 0;
+    }
+    
+    .panel-footer {
+        display: none;
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .mobile-nav {
+        display: none;
+    }
+    
+    .navbar {
+        display: block !important;
+    }
+    
+    .container-fluid {
+        padding: 0 20px;
+    }
+    
+    .col-md-2 {
+        width: 25%;
+    }
+    
+    .col-md-8 {
+        width: 75%;
+    }
+}
+
+/* Desktop Styles */
+@media (min-width: 1025px) {
+    .mobile-nav {
+        display: none;
+    }
+    
+    .navbar {
+        display: block !important;
+    }
+    
+    .container-fluid {
+        padding: 0 30px;
+    }
+}
+
+/* Loading Animation */
+.mobile-loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.mobile-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.mb-20 { margin-bottom: 20px; }
+.mt-20 { margin-top: 20px; }
+.p-15 { padding: 15px; }
+.p-20 { padding: 20px; }

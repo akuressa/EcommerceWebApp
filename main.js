@@ -193,6 +193,10 @@ $(document).ready(function(){
 			data : {Common:1,getCartItem:1},
 			success : function(data){
 				$("#cart_product").html(data);
+				// Also update mobile cart if it exists
+				if($("#mobile_cart_product").length) {
+					$("#mobile_cart_product").html(data);
+				}
 			}
 		})
 	}

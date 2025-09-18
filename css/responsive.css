@@ -1,0 +1,936 @@
+/* Responsive Design for Existing E-commerce Application */
+
+/* Base responsive styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    padding-top: 60px !important;
+}
+
+/* Mobile-first responsive breakpoints */
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 767.98px) {
+    
+    /* Fix navbar for mobile */
+    .navbar {
+        min-height: 50px;
+    }
+    
+    .navbar-brand {
+        font-size: 18px;
+        padding: 15px 15px;
+    }
+    
+    .navbar-toggle {
+        margin-top: 8px;
+        margin-bottom: 8px;
+    }
+    
+    /* Make navbar items more readable on mobile */
+    .navbar-nav > li > a {
+        padding: 10px 15px;
+        font-size: 16px;
+    }
+    
+    /* Fix search form on mobile */
+    .navbar-form {
+        margin: 10px 0;
+        padding: 0 15px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .navbar-form .form-group {
+        margin-bottom: 0;
+        flex: 1;
+    }
+    
+    .navbar-form .form-control {
+        font-size: 16px;
+        height: 40px;
+        width: 100%;
+        margin-bottom: 0;
+    }
+    
+    .navbar-form .btn {
+        height: 40px;
+        padding: 8px 12px;
+        width: auto;
+        min-width: 50px;
+        margin-top: 0;
+        font-weight: 600;
+        flex-shrink: 0;
+    }
+    
+    /* Make search form more prominent on mobile */
+    .navbar-form {
+        background: #f8f9fa;
+        border-radius: 6px;
+        padding: 8px;
+        margin: 15px 0;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    /* Add search icon to input */
+    .navbar-form .form-control {
+        padding-left: 40px;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='%23999' d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'/%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: 12px center;
+        background-size: 16px;
+    }
+    
+    /* Fix dropdown menus on mobile */
+    .dropdown-menu {
+        position: static;
+        float: none;
+        width: 100%;
+        margin-top: 0;
+        background-color: #f8f9fa;
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+    
+    /* Make cart dropdown mobile-friendly */
+    .dropdown-menu[style*="width:1000px"] {
+        width: 100% !important;
+        max-width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+    }
+    
+    /* Fix login dropdown on mobile */
+    .dropdown-menu > div[style*="width:300px"] {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    /* Container adjustments */
+    .container-fluid {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    /* Hide sidebar on mobile and make main content full width */
+    .col-md-1,
+    .col-md-2 {
+        display: none;
+    }
+    
+    .col-md-8 {
+        width: 100%;
+        float: none;
+    }
+    
+    /* Make panels mobile-friendly */
+    .panel {
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+    
+    .panel-heading {
+        font-size: 18px;
+        padding: 12px 15px;
+        font-weight: 600;
+    }
+    
+    .panel-body {
+        padding: 15px;
+    }
+    
+    /* Make product cards responsive */
+    .panel-info .panel-body {
+        padding: 10px;
+    }
+    
+    /* Fix product grid for mobile */
+    .col-md-4,
+    .col-sm-6,
+    .col-xs-12 {
+        width: 100%;
+        float: none;
+        margin-bottom: 20px;
+    }
+    
+    /* Product card improvements */
+    .panel-info {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin-bottom: 20px;
+    }
+    
+    .panel-info .panel-heading {
+        background-color: #17a2b8;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 15px;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .panel-info .panel-body {
+        padding: 15px;
+    }
+    
+    .panel-info .panel-body img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+    
+    /* Price and button row styling */
+    .panel-heading:last-child {
+        background-color: #17a2b8;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 12px 15px;
+        border-radius: 0 0 8px 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .panel-heading:last-child .btn {
+        margin: 0;
+        flex-shrink: 0;
+    }
+    
+    /* Make product images responsive */
+    .panel-body img {
+        width: 100%;
+        height: auto;
+        max-height: 250px;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+    
+    /* Fix product text for mobile */
+    .panel-heading {
+        font-size: 16px;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+    
+    /* Make buttons mobile-friendly */
+    .btn {
+        font-size: 16px;
+        padding: 12px 16px;
+        border-radius: 6px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .btn-xs {
+        font-size: 14px;
+        padding: 10px 14px;
+        min-height: 40px;
+    }
+    
+    /* Specific styling for Add to Cart button */
+    .btn-danger {
+        background-color: #dc3545;
+        border-color: #dc3545;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 12px 20px;
+        border-radius: 6px;
+        min-height: 44px;
+        transition: all 0.2s ease;
+    }
+    
+    .btn-danger:hover {
+        background-color: #c82333;
+        border-color: #bd2130;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .btn-danger:active {
+        transform: translateY(0);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    
+    /* Fix price display */
+    .panel-heading:last-child {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    /* Add some spacing for mobile */
+    body {
+        padding-top: 60px;
+    }
+    
+    /* Fix footer */
+    .panel-footer {
+        font-size: 14px;
+        padding: 10px 15px;
+        text-align: center;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    
+    /* Adjust sidebar for tablets */
+    .col-md-2 {
+        width: 25%;
+    }
+    
+    .col-md-8 {
+        width: 75%;
+    }
+    
+    /* Make product grid 2 columns on tablets */
+    .col-md-4 {
+        width: 50%;
+    }
+    
+    /* Adjust navbar for tablets */
+    .navbar-brand {
+        font-size: 20px;
+    }
+    
+    .navbar-nav > li > a {
+        font-size: 15px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    
+    /* Keep original desktop layout */
+    .col-md-1 {
+        width: 8.33333333%;
+    }
+    
+    .col-md-2 {
+        width: 16.66666667%;
+    }
+    
+    .col-md-8 {
+        width: 66.66666667%;
+    }
+    
+    .col-md-4 {
+        width: 33.33333333%;
+    }
+}
+
+/* Extra improvements for very small screens */
+@media (max-width: 480px) {
+    
+    /* Make navbar even more compact */
+    .navbar-brand {
+        font-size: 16px;
+        padding: 12px 10px;
+    }
+    
+    /* Hide some navbar elements on very small screens */
+    .navbar-nav > li > a .glyphicon {
+        display: none;
+    }
+    
+    .navbar-nav > li > a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    
+    /* Make search more compact */
+    .navbar-form .form-control {
+        font-size: 14px;
+        height: 35px;
+    }
+    
+    .navbar-form .btn {
+        height: 35px;
+        padding: 6px 10px;
+    }
+    
+    /* Adjust panel spacing */
+    .panel-heading {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+    
+    .panel-body {
+        padding: 12px;
+    }
+    
+    /* Make buttons smaller on very small screens */
+    .btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+}
+
+/* Fix for Bootstrap navbar collapse */
+@media (max-width: 767.98px) {
+    .navbar-collapse {
+        border-top: 1px solid #444;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+        background: #333;
+        padding: 0 15px;
+    }
+    
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+    
+    .navbar-collapse.collapse.in {
+        display: block !important;
+    }
+    
+    /* Ensure navbar is always visible */
+    .navbar {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1030 !important;
+        background: #333 !important;
+        border: none !important;
+    }
+    
+    .navbar-header {
+        float: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .navbar-toggle {
+        display: block;
+        margin-right: -20px;
+    }
+    
+    /* Show cart in navbar header on mobile */
+    .navbar-header .navbar-brand {
+        flex: 1;
+        margin-left: 15px;
+    }
+    
+    .navbar-header .mobile-cart {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 8px 12px;
+        margin-right: 15px;
+        border-radius: 4px;
+        background: rgba(255,255,255,0.1);
+        transition: background 0.2s ease;
+    }
+    
+    /* Show mobile cart nav only on mobile */
+    .mobile-cart-nav {
+        display: block !important;
+    }
+    
+    .navbar-header .mobile-cart:hover {
+        background: rgba(255,255,255,0.2);
+        color: white;
+        text-decoration: none;
+    }
+    
+    .navbar-header .mobile-cart .badge {
+        background: #dc3545;
+        color: white;
+        border-radius: 50%;
+        padding: 2px 6px;
+        font-size: 12px;
+        margin-left: 5px;
+    }
+    
+    /* Mobile cart dropdown styling */
+    .mobile-cart-nav {
+        display: block;
+        float: right;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .mobile-cart-dropdown {
+        position: relative;
+        display: block;
+    }
+    
+    .mobile-cart-menu {
+        position: fixed !important;
+        top: 60px !important;
+        left: 10px !important;
+        right: 10px !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: auto !important;
+        z-index: 1050;
+        background: #dcd8d8;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        margin: 0;
+        transform: none !important;
+        display: none;
+    }
+    
+    .mobile-cart-menu.show {
+        display: block !important;
+    }
+    
+    .mobile-cart-menu .panel {
+        margin-bottom: 0;
+        border: none;
+        background: transparent;
+    }
+    
+    .mobile-cart-menu .panel-body {
+        padding: 15px;
+        max-height: 60vh;
+        overflow-y: auto;
+        background: #f5f5f5;
+    }
+    
+    /* Make cart content mobile-friendly */
+    .mobile-cart-menu .cart-modal-content {
+        min-width: auto !important;
+        max-width: none !important;
+        width: 100% !important;
+        padding: 10px !important;
+    }
+    
+    .mobile-cart-menu .cart-item-row {
+        margin: 10px 0 !important;
+        padding: 15px !important;
+        display: block !important;
+    }
+    
+    .mobile-cart-menu .cart-item-row .col-md-2 {
+        width: 100% !important;
+        display: block !important;
+        margin-bottom: 10px;
+        padding: 5px 0;
+    }
+    
+    .mobile-cart-menu .cart-item-row img {
+        max-width: 80px !important;
+        height: auto !important;
+    }
+    
+    .mobile-cart-menu .cart-item-row h5 {
+        font-size: 16px !important;
+        margin-bottom: 5px !important;
+    }
+    
+    .mobile-cart-menu .cart-item-row input {
+        width: 80px !important;
+        text-align: center;
+    }
+    
+    .mobile-cart-menu .cart-item-row .btn {
+        margin: 2px !important;
+        padding: 6px 10px !important;
+        font-size: 12px !important;
+    }
+    
+    /* Make mobile cart content responsive */
+    .mobile-cart-menu .row {
+        margin: 0;
+        display: block;
+    }
+    
+    .mobile-cart-menu .col-md-3,
+    .mobile-cart-menu .col-md-4,
+    .mobile-cart-menu .col-md-6 {
+        padding: 8px 15px;
+        font-size: 14px;
+        width: 100% !important;
+        float: none !important;
+        display: block !important;
+        border-bottom: 1px solid #eee;
+    }
+    
+    /* Mobile cart item styling */
+    .mobile-cart-menu .cart-item {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .mobile-cart-menu .cart-item img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    
+    .mobile-cart-menu .cart-item .product-name {
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+        margin-bottom: 5px;
+    }
+    
+    .mobile-cart-menu .cart-item .product-id {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 10px;
+    }
+    
+    .mobile-cart-menu .cart-item .quantity-input {
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        text-align: center;
+        margin: 5px 0;
+    }
+    
+    .mobile-cart-menu .cart-item .price-display {
+        background: #f8f9fa;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-weight: bold;
+        color: #333;
+        margin: 5px 0;
+    }
+    
+    .mobile-cart-menu .cart-item .total-price {
+        background: #28a745;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 4px;
+        font-weight: bold;
+        margin: 5px 0;
+    }
+    
+    .mobile-cart-menu .cart-item .action-buttons {
+        margin-top: 10px;
+    }
+    
+    .mobile-cart-menu .cart-item .btn {
+        margin: 2px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .mobile-cart-menu .btn {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin: 2px;
+    }
+    
+    .mobile-cart-menu img {
+        max-width: 60px;
+        height: auto;
+    }
+    
+    .mobile-cart-menu .panel-footer {
+        padding: 15px;
+        background: #e9ecef;
+        border-top: 1px solid #ddd;
+        border-radius: 0 0 8px 8px;
+    }
+    
+    /* Mobile cart total */
+    .mobile-cart-menu .cart-total {
+        background: #28a745;
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        margin: 15px 0;
+    }
+    
+    /* Mobile cart make payment button */
+    .mobile-cart-menu .make-payment-btn {
+        width: 100%;
+        background: #007bff;
+        color: white;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
+    
+    .mobile-cart-menu .make-payment-btn:hover {
+        background: #0056b3;
+    }
+    
+    /* Mobile cart close button */
+    .mobile-cart-menu .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: #999;
+        cursor: pointer;
+        z-index: 1;
+    }
+    
+    .mobile-cart-menu .close-btn:hover {
+        color: #333;
+    }
+    
+    /* Mobile cart header */
+    .mobile-cart-menu .cart-header {
+        padding: 15px;
+        background: #e9ecef;
+        border-bottom: 1px solid #ddd;
+        font-weight: bold;
+        font-size: 16px;
+        color: #333;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .navbar-nav {
+        float: none !important;
+        margin: 0;
+        padding: 10px 0;
+    }
+    
+    .navbar-nav > li {
+        float: none;
+        border-bottom: 1px solid #444;
+    }
+    
+    .navbar-nav > li:last-child {
+        border-bottom: none;
+    }
+    
+    .navbar-nav > li > a {
+        padding: 12px 15px;
+        color: #fff;
+        font-size: 16px;
+    }
+    
+    .navbar-nav > li > a:hover {
+        background: #555;
+        color: #fff;
+    }
+    
+    /* Hide only the cart from toggle menu on mobile, keep Login/Register */
+    .navbar-nav.navbar-right > li:first-child {
+        display: none;
+    }
+}
+
+/* Tablet and Desktop - Hide mobile cart and show original cart */
+@media (min-width: 768px) {
+    /* Ensure navbar is visible on desktop */
+    .navbar {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1030 !important;
+        background: #333 !important;
+        border: none !important;
+    }
+    
+    /* Hide mobile cart on larger screens */
+    .navbar-header .mobile-cart {
+        display: none !important;
+    }
+    
+    .mobile-cart-nav {
+        display: none !important;
+    }
+    
+    /* Reset navbar header layout for larger screens */
+    .navbar-header {
+        float: left;
+        display: block;
+        width: auto;
+    }
+    
+    .navbar-header .navbar-brand {
+        flex: none;
+        margin-left: 0;
+    }
+    
+    /* Show original cart in toggle menu on larger screens */
+    .navbar-nav.navbar-right > li:first-child {
+        display: block;
+    }
+    
+    /* Ensure navbar collapse is visible on desktop */
+    .navbar-collapse {
+        display: block !important;
+    }
+}
+
+/* Mobile-specific styles for search form */
+@media (max-width: 767.98px) {
+    .navbar-form {
+        padding: 8px;
+        margin: 15px 0;
+        border: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+    
+    .navbar-form .form-group {
+        flex: 1;
+        margin-bottom: 0;
+    }
+    
+    .navbar-form .form-control {
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        width: 100%;
+    }
+    
+    .navbar-form .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    
+    .navbar-form .btn {
+        background: #007bff;
+        border: none;
+        border-radius: 4px;
+        width: auto;
+        min-width: 50px;
+        flex-shrink: 0;
+    }
+    
+    .navbar-form .btn:hover {
+        background: #0056b3;
+    }
+    
+    /* Ensure navbar is properly positioned */
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+    
+    .navbar-brand {
+        margin-left: 15px;
+    }
+}
+
+/* Improve readability on all mobile devices */
+@media (max-width: 767.98px) {
+    
+    /* Make all text more readable */
+    body {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        line-height: 1.3;
+    }
+    
+    /* Fix form elements */
+    input, select, textarea {
+        font-size: 16px;
+    }
+    
+    /* Improve button touch targets */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Make links more touch-friendly */
+    a {
+        min-height: 44px;
+        display: inline-block;
+        line-height: 44px;
+    }
+}
+
+/* Fix specific issues with the existing design */
+@media (max-width: 767.98px) {
+    
+    /* Hide the extra spacing that was added for desktop */
+    p {
+        margin: 0;
+    }
+    
+    /* Make sure the main content starts right after navbar */
+    .container-fluid {
+        margin-top: 0;
+    }
+    
+    /* Fix any overflow issues */
+    .container-fluid,
+    .row,
+    .col-md-8 {
+        overflow-x: hidden;
+    }
+    
+    /* Registration form mobile responsiveness */
+    .panel-primary {
+        margin: 0 10px;
+    }
+    
+    .panel-body {
+        padding: 20px 15px;
+    }
+    
+    .form-control {
+        font-size: 16px;
+        height: 45px;
+        padding: 10px 15px;
+        border-radius: 6px;
+        border: 2px solid #ddd;
+    }
+    
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    
+    label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #333;
+    }
+    
+    .btn-success {
+        font-size: 18px;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: 600;
+    }
+    
+    /* Make form fields stack properly on mobile */
+    .col-md-6 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .col-md-12 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

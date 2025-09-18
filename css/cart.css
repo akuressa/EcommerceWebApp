@@ -128,8 +128,21 @@
     }
     
     .btn-complete-order {
-        padding: 12px 25px;
-        font-size: 16px;
+        padding: 12px 10px;
+        font-size: 14px;
+        width: auto !important;
+        max-width: 280px;
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+/* Additional mobile styles for very small screens */
+@media (max-width: 480px) {
+    .btn-complete-order {
+        padding: 10px 10px;
+        font-size: 12px;
+        max-width: 240px;
     }
 }
 

@@ -7,12 +7,14 @@ if (isset($_GET["register"])) {
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Ecommerce</title>
 		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<script src="js/jquery2.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 		<script src="main.js"></script>
-		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 <body>
 <div class="wait overlay">
@@ -20,13 +22,24 @@ if (isset($_GET["register"])) {
 </div>
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">	
-			<div class="navbar-header">
-				<a href="index.php" class="navbar-brand">Ecommerce Site</a>
-			</div>
+		<div class="navbar-header">
+			<a href="index.php" class="navbar-brand">Ecommerce Site</a>
+			<a href="#" class="mobile-cart">
+				<span class="glyphicon glyphicon-shopping-cart"></span> Cart <span class="badge">0</span>
+			</a>
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse" aria-expanded="false">
+				<span class="sr-only">navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="collapse">
 			<ul class="nav navbar-nav">
 				<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Home</a></li>
 				<li><a href="index.php"><span class="glyphicon glyphicon-modal-window"></span> Product</a></li>
 			</ul>
+		</div>
 		</div>
 	</div>
 	<p><br/></p>
